@@ -1,7 +1,8 @@
 FROM centos:8
 LABEL maintainer="is:-D Networks Docker Maintainers <jhcheong@isdnetworks.pe.kr>"
 
-RUN dnf install -y glibc-locale-source glibc-langpack-ko epel-release GeoIP-GeoLite-data-extra \
+RUN dnf install -y epel-release \
+ && dnf install -y glibc-locale-source glibc-langpack-ko GeoIP-GeoLite-data-extra \
  && dnf clean all \
  && rm -rf /var/cache/dnf \
  && localedef -f UTF-8 -i ko_KR ko_KR.UTF-8 \
